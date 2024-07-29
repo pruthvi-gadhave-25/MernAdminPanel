@@ -3,6 +3,7 @@
 
 const User = require("../models/user-model");
 
+
 const home = async (req ,res ) => {
     try{
         res.status(200).json({message : req.body}) 
@@ -21,7 +22,6 @@ const register = async (req ,res ) => {
 
         if(isUserExists){
             return res.status(400).json({ msg : "Email already exists"}) ;
-
         }
       const userCreated  =  await User.create({ username , email ,phone ,password}) ;
 
