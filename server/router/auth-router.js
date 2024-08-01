@@ -15,12 +15,13 @@ router.route("/home").get(authcontrollers.home) ;
 
 
 //  %---------------% 
-//  Registration
+//  Registrationx
 //  %---------------%
 
 
 router.route("/register").get(authcontrollers.register) ; 
 router.route("/register").post(authcontrollers.register) ; 
+router.route("/login").post(authcontrollers.login) ; 
 
 
 

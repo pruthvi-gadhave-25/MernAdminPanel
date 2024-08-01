@@ -2,6 +2,7 @@
 //sepertates concerns / use     
 
 const User = require("../models/user-model");
+const bcrypt = require("bcrypt") ;
 
 
 const home = async (req ,res ) => {
@@ -14,7 +15,7 @@ const home = async (req ,res ) => {
 } ;
 
 
-
+// --------Register---------------------------
 const register = async (req ,res ) => {
     try{    
         const { username , email ,phone ,password } = req.body ;
@@ -25,13 +26,45 @@ const register = async (req ,res ) => {
         }
       const userCreated  =  await User.create({ username , email ,phone ,password}) ;
 
-        res.status(200).json({ msg : userCreated})   ;  
+        res
+        .status(200)
+        .json({ msg :"Register Successfull ", token : await userCreated.generateToken()}) ;  
      }
-    catch(error){
+    catch(error){ 
         res.status(500).json("Internal server Error ") ;
     }
 } ;
 
 
-module.exports = {home , register } ;
+
+
+///Login---------------------------------
+const login = async (req ,res ) => {
+    try{    
+        const { email , password } = req.body ;
+        const userExists = await  User.findOne({email});
+
+        if(!userExists){
+            return res.status(400).json({ msg : " Invalid Credentials "}) ;
+        }
+    
+       const user =  await userExists.comparePassword(password) ;
+
+       if(user){
+        res.status(200).json({
+             msg :"Login Successfull ", 
+            token : await userExists.generateToken() ,
+            userId : userExists._id.toString(),
+        }) ; 
+       }else{
+        res.status(401).json({
+             msg :"Invaid Email or Password  ",  
+        }) ;
+       }
+     }
+    catch(error){ 
+        res.status(500).json(   "Internal server Error " ) ;
+    }
+} ;
+module.exports = {home , register ,login } ;
 
