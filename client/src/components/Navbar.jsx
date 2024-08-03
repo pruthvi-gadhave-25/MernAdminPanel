@@ -15,11 +15,12 @@ function Navbar() {
             <li className=''>
               <NavLink to='/' >Home</NavLink>
             </li>
-            <li  className=''>
-              <NavLink to='/about' >About</NavLink>
-            </li>
+          
             <li  className=''>
               <NavLink to='/service' >Service</NavLink>
+            </li>
+            <li  className=''>
+              <NavLink to='/contact' >Contact</NavLink>
             </li>
             <li  className=''>
               <NavLink to='/login' >Login</NavLink>

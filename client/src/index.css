@@ -2,8 +2,152 @@
     margin: 0;
     padding : 0 ;
     box-sizing: border-box;
+    font-family:Urbanist , system-ui , Avenir , Helvetica , Arial , sans-serif ;
+   
+}
+
+:root{
+    --bg-color:#f4f3ff;
+    --btn-color : #646cff ;
+    --dark-color : #242424 ;
+    --helper-color : #99b9ff ;
+
 }
 
 html{
     font-size: 70.5% ;
 }
+
+body{
+    margin: 0 ;
+    min-width:32rem ;
+    min-height: 100vh;
+}
+h1{
+    font-size: 5.4rem;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+p , 
+label , 
+input  , 
+textarea{
+    font-size: 1.8 rem ;
+    line-height: 1.56;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.06rem;
+}
+
+a{
+    font-weight: 500; 
+    font-size   :1.8 rem ;
+    color: var(--btn-color);
+    text-decoration: inherit;
+}
+
+li{
+    list-style-type: none ;
+}
+.container{
+    max-width: 140rem;
+    padding: 4rem 2.4rem;
+    margin: 0 auto ;
+
+}
+.grid{
+    display: grid;
+    gap: 6.4rem;
+}
+
+.grid-two-cols{
+    grid-template-columns:repeat(2, 1fr)
+}
+
+
+/* ----------------------Moduels reusable   */
+
+button{
+    text-transform: capitalize;
+    padding: 1rem 2.2rem;
+    font-weight: 500;
+    background-color: var(--btn-color);
+    border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem ;
+    -moz-border-radius :0.8rem;
+    -o-border-radius: 0.8rem ;
+    border: .1rem solid transparent;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    transition: border-color 0;
+
+}
+
+/* -----------------State Rules  */
+button:hover {
+    box-shadow: inset 0 0 0 0.2rem var(--bg-color);
+}
+
+a:hover ,
+a.active{
+    color: #535bf2;
+}
+
+.secondary-btn{
+    background-color: transparent; 
+    box-shadow:  inset 0 0 0 0.2rem var(--bg-color);
+    margin-left: 3.2 rem;
+}
+
+.hero-image{
+    border-radius: 5px;
+}
+
+#error-page .content {
+    max-width: 70rem;
+    text-align: center;
+  }
+  .content h2.header {
+    font-size: 18vw;
+    line-height: 1em;
+    animation: animate 10s ease-in-out infinite;
+    background: -webkit-repeating-linear-gradient(
+      -60deg,
+      #71b7e6,
+      var(--btn-color),
+      #b98acc,
+      #ee8176,
+      #b98acc,
+      var(--btn-color),
+      #9b59b6
+    );
+    background-size: 500%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.25);
+    position: relative;
+    -webkit-animation: animate 10s ease-in-out infinite;
+  }
+
+  /* --- -----------------form  css ----------------------------- */
+  .form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form div{
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+.form div input{
+    width: 18vw;
+    padding: 0.3rem;
+}
+
+.form button{
+    width: 10vw;
+}
+
+  

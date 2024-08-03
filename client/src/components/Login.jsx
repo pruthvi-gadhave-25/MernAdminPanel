@@ -12,7 +12,7 @@ function Login() {
   function handleInput(e) {
     const {name ,value} = e.target ;
    
-      setUser( {
+      setUser({
         ...user ,
         [name] : value 
       } ,
@@ -30,15 +30,14 @@ function Login() {
         <div className='section-login'>
           <div className='container grid grid-two-cols'>
             <div className="login-image">
-              <img src="/images/surveyapp.png" alt="registerapp" width={500} height={283} />
+              <img src="/images/login-image.png" alt="registerApp" width={600} height={400} />
             </div>
             <div className='login-form'>
               <h1 className='main-heading mb-3'>
                 Login Form
               </h1>
               <br />
-              <form onSubmit={handleSubmit}>
-              
+              <form onSubmit={handleSubmit} className='form'>
                 <div>
                   <label htmlFor='email'>Email</label>
                   <input type="text" name="email" placeholder='Enter your Email' id="email" required autoComplete='off' value={user.email} onChange={handleInput} />

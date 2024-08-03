@@ -22,8 +22,6 @@ function Register() {
 
   function handleSubmit(e){
   e.preventDefault();
-    console.log(user);
-    
   }
 
   return (
@@ -31,15 +29,15 @@ function Register() {
       <main>
         <div className='section-registration'>
           <div className='container grid grid-two-cols'>
-            <div className="registration-image">
-              <img src="/images/surveyapp.png" alt="registerapp" width={500} height={283} />
+            <div className="registration-image ">
+              <img src="/images/software-development-coding.jpg" alt="registerapp" width={700} height={400} className='hero-image' />
             </div>
             <div className='registration-form'>
               <h1 className='main-heading mb-3'>
                 Registration Form
               </h1>
               <br />
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className='form'>
                 <div>
                   <label htmlFor='username'>Username</label>
                   <input type="text" name="username" placeholder='Enter your name' id="username" required autoComplete='off' value={user.username} onChange={handleInput} />
@@ -57,7 +55,7 @@ function Register() {
                   <input type="password" name="password" placeholder='Enter your Password' id="password" required autoComplete='off' value={user.password} onChange={handleInput} />
                 </div>
                 <br />
-                <button type='submit' className='btn btn-submit'>Register Now </button>
+                <button type='submit' className='btn btn-submit'> Register Now </button>
               </form>
             </div>
           </div>

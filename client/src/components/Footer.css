@@ -1,0 +1,32 @@
+#footer {
+/*     
+    background-color: #F3F3F3;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    position: fixed;
+    height: auto;
+  
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 -5px 6px rgba(0,0,0,0.5); */
+
+    padding: 3.2 rem ; 
+    text-align:center ;
+    background-color: var(--btn-color);
+    margin-top: auto;
+    position: fixed;
+    height: auto;
+  
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+
+} 
+#copyright-bar{
+    padding: 10px;
+}
