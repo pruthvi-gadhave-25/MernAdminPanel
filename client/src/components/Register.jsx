@@ -20,8 +20,33 @@ function Register() {
     );
   }
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
   e.preventDefault();
+    debugger ;
+ try {
+
+  const response = await fetch('http://localhost:5000/api/auth/register', {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: {"Content-Type" : "application/json" },
+
+
+  });
+    console.log(response.ok);
+    
+  if(!response.ok){   
+    throw new Error("error occured in register "  , {cause : response});
+  }
+  else{
+    setUser({
+      username: "" , email: "" , phone : "" , password :"" 
+    })
+  }
+  
+ } catch (error) {
+    console.log("error registrtion" , error);
+    
+ } 
   }
 
   return (

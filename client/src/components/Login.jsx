@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Login.css" ;
 
+import {Navigate, useNavigate} from "react-router-dom" ;
+
 function Login() {
 
 
@@ -19,10 +21,40 @@ function Login() {
     );
   }
 
-  function handleSubmit(e){
+
+
+  const navigate = useNavigate() ;
+
+  ///handlesubmit 
+  async function handleSubmit(e){
+
   e.preventDefault();
+
     console.log(user);
+    e.preventDefault();
+ try {
+
+  const response = await fetch('http://localhost:5000/api/auth/login', {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: {"Content-Type" : "application/json" },
+  });
     
+
+  if(!response.ok){   
+    throw new Error("Error Occured in Login "  , {cause : response});
+  }
+  else{
+      setUser({
+        email: "" ,  password :""  ,
+      }) ;
+      navigate("/") ;
+  }
+  
+ } catch (error) {
+    console.log("error registrtion" , error);
+    
+ } 
   }
   return (
     <section>
