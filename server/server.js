@@ -8,9 +8,10 @@ const errorMiddleware = require("./middlewares/error-middleware");
 
 const authRoute = require("./router/auth-router");
 const contactRouter = require("./router/contact-router");
+const serviceRouter = require("./router/service-router") ;
 
 const app = express() ;
-app.use(express.json()) ;   ///actin g as midddeleware parsees incoming requst with json payloads 
+app.use(express.json()) ;   ///acting as midddeleware parsees incoming requst with json payloads 
 
 
 const corsOptions = {
@@ -21,8 +22,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions)) ;
 
-app.use("/api/auth" , authRoute) ;
-app.use("/api/form" ,contactRouter) ;
+app.use("/api/auth" , authRoute);
+app.use("/api/form" ,contactRouter);
+app.use("/api/data" ,serviceRouter);
 
 app.get("/" ,(req ,res) => {
      res.status(200).send("welcome to my world ") ;

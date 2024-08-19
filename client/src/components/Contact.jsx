@@ -7,35 +7,54 @@ function Contact() {
     email: "",
     message: "",
   });
-  const [isUserdata ,setIsUserData] = useState(true) ;
-  const {user} = useAuth() ;
+  const [isUserdata, setIsUserData] = useState(true);
+  const { user } = useAuth();
 
 
-  if(isUserdata && user){
+  if (isUserdata && user) {
     setContact({
       username: user.username,
-      email : user.email ,
-      message: "" 
-    }) ;
+      email: user.email,
+      message: ""
+    });
     setIsUserData(false)
   }
-  function handleInput(e){
-    const {value , name } = e.target  ;
+  function handleInput(e) {
+    const { value, name } = e.target;
 
-    setContact( {
-      ...contact ,
-      [name] : value 
-    }) ;
+    setContact({
+      ...contact,
+      [name]: value
+    });
   }
 
-  function handleSubmit(e){
-    e.preventDefault() ;
+  async function handleSubmit(e) {
+    e.preventDefault();
     console.log(contact);
-    
+    try {
+      const response = await fetch("http://localhost:5000/api/form/contact", {
+        method: "POST",
+        body: JSON.stringify(contact),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!response.ok) {
+        throw new Error("Data not send succefully ", { cause: response });
+      }
+      else {
+        setContact({
+          username: "",
+          email: "",
+          message: "",
+        });
+       
+      }
+    } catch (error) {
+      console.log("error registrtion", error);
+    }
+
   }
   return (
     <>
-    {console.log({user})}
       <section className="section-contact">
         <div className="contact-content container">
           <h1 className="main-heading">Contact Us</h1>

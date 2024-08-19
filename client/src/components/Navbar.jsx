@@ -5,9 +5,7 @@ import { useAuth } from '../store/auth';
 
 function Navbar() {
   const {isLoggedin} = useAuth();
-  console.log(isLoggedin);
   
-
   return (
    
     <header className='d-flex '>

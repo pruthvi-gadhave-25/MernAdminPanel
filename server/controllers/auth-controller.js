@@ -70,7 +70,7 @@ const user = async (req ,res) => {
 
     try {
          const userData = req.user ;
-        console.log( "from controller data of User ",userData);
+        // console.log( "from controller data of User ",userData);
         
         res.status(200).json({ userData});
 
@@ -79,5 +79,7 @@ const user = async (req ,res) => {
         
     }
 }
-module.exports = {home , register ,login ,user} ;
+
+
+module.exports = {home , register ,login ,user } ;
 

@@ -29,7 +29,6 @@ const  Register = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    debugger;
     try {
 
       const response = await fetch('http://localhost:5000/api/auth/register', {
@@ -39,8 +38,6 @@ const  Register = () => {
 
 
       });
-      console.log(response.ok);
-
       if (!response.ok) {
         throw new Error("error occured in register ", { cause: response });
       }

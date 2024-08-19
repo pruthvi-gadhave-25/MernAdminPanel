@@ -5,13 +5,13 @@ function Footer() {
   return (
     <section id="footer">
     <div id="copyright-bar">
-      <div class="row">
-        <div class="copyright-content">
-          <div class="span4">
+      <div className="row">
+        <div className="copyright-content">
+          <div className="span4">
             <p>The Mern Admin Limited. 2013 All rights reserved.</p>
           </div>
-          <div class="span4 offset4">
-            <div class="copyright-list">
+          <div className="span4 offset4">
+            <div className="copyright-list">
               <ul>
                 <a href="terms.html">
                   <li>Terms &amp; Conditions</li>
