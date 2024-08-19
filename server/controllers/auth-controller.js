@@ -63,5 +63,21 @@ const login = async (req ,res ) => {
         res.status(500).json(   "Internal server Error " ) ;
     }
 } ;
-module.exports = {home , register ,login } ;
+
+///get user details ---------------------------------
+
+const user = async (req ,res) => {
+
+    try {
+         const userData = req.user ;
+        console.log( "from controller data of User ",userData);
+        
+        res.status(200).json({ userData});
+
+    } catch (error) {
+        console.log("error occured", error);
+        
+    }
+}
+module.exports = {home , register ,login ,user} ;
 

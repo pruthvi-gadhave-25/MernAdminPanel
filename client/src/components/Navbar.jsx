@@ -1,39 +1,58 @@
 import React from 'react'
-import   {NavLink } from "react-router-dom" ;
+import { NavLink } from "react-router-dom";
 import "./Navbar.css"
+import { useAuth } from '../store/auth';
 
 function Navbar() {
+  const {isLoggedin} = useAuth();
+  console.log(isLoggedin);
+  
+
   return (
+   
     <header className='d-flex '>
-       <div className='container'>
+      <div className='container'>
         <div className="logo-brand">
-           <h2>Mern App</h2>
+          <h2>Mern App</h2>
         </div>
-       
-         <nav>
-         <ul className=''>
+        {isLoggedin}
+        <nav>
+          <ul className=''>
             <li className=''>
               <NavLink to='/' >Home</NavLink>
             </li>
-          
-            <li  className=''>
+
+            <li className=''>
               <NavLink to='/service' >Service</NavLink>
             </li>
-            <li  className=''>
+            <li className=''>
               <NavLink to='/contact' >Contact</NavLink>
             </li>
-            <li  className=''>
-              <NavLink to='/login' >Login</NavLink>
-            </li>
-            <li  className=''>
-              <NavLink to='/register' >Register</NavLink>
-            </li>
+
+            {
+              isLoggedin ?(
+                <li className=''>
+                  <NavLink to='/logout' >Logout </NavLink>
+                </li>)
+                :
+                (<>
+                  <li className=''>
+                    <NavLink to='/login' >Login{isLoggedin}</NavLink>
+                  </li>
+
+                  <li className=''>
+                    <NavLink to='/register' >Register</NavLink>
+                  </li>
+                </>)
+            } 
+
+
           </ul>
-         </nav>
-         </div> 
-       
+        </nav>
+      </div>
+
     </header>
   )
 }
 
-export default Navbar ;
+export default Navbar;

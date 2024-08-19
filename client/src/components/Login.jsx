@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import "./Login.css" ;
 
 import {Navigate, useNavigate} from "react-router-dom" ;
+import { useAuth } from '../store/auth';
 
-function Login() {
+ function Login() {
 
+  const navigate = useNavigate() ;
+  const {storeTokenLocalstorage} =useAuth() ;
 
   const [user, setUser] = useState({
     email: "",  
@@ -23,7 +26,6 @@ function Login() {
 
 
 
-  const navigate = useNavigate() ;
 
   ///handlesubmit 
   async function handleSubmit(e){
@@ -45,6 +47,11 @@ function Login() {
     throw new Error("Error Occured in Login "  , {cause : response});
   }
   else{
+    const res_data = await response.json()
+    console.log("from login");
+    debugger 
+     await storeTokenLocalstorage(res_data.token);
+
       setUser({
         email: "" ,  password :""  ,
       }) ;

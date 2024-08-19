@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useAuth } from '../store/auth';
 
 function Contact() {
   const [contact, setContact] = useState({
@@ -6,7 +7,18 @@ function Contact() {
     email: "",
     message: "",
   });
+  const [isUserdata ,setIsUserData] = useState(true) ;
+  const {user} = useAuth() ;
 
+
+  if(isUserdata && user){
+    setContact({
+      username: user.username,
+      email : user.email ,
+      message: "" 
+    }) ;
+    setIsUserData(false)
+  }
   function handleInput(e){
     const {value , name } = e.target  ;
 
@@ -23,6 +35,7 @@ function Contact() {
   }
   return (
     <>
+    {console.log({user})}
       <section className="section-contact">
         <div className="contact-content container">
           <h1 className="main-heading">Contact Us</h1>

@@ -5,6 +5,7 @@ const {signupSchema ,signinSchema} = require("../validators/auth-validator");
 const validate = require("../middlewares/validate-middleware");
 const bodyParser = require("body-parser");
 const { Schema } = require("zod");
+const authMiddleware = require("../middlewares/auth-middleware");
 const router = express.Router() ;
 
 
@@ -31,6 +32,8 @@ router.route("/home").get(authcontrollers.home) ;
  
 router.route("/register").post( validate(signupSchema) , authcontrollers.register) ; 
 router.route("/login").post( validate(signinSchema) , authcontrollers.login) ; 
+router.route("/user").get(authMiddleware , authcontrollers.user) ;  // for get dta user data on route 
+
 
 
 

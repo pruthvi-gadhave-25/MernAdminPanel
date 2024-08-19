@@ -9,8 +9,11 @@ import Register from './components/Register'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Error from './components/Error'
+import ReactFunctionDemo from './components/ReactFunctionDemo'
+import Logout from './components/Logout'
 
 function App() {
+
 
   return (
     <>
@@ -22,7 +25,9 @@ function App() {
       <Route path='/service' element={<Services/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
+      <Route path='/logout' element={<Logout/>} />
       <Route path='*' element={<Error/>} />
+      <Route path='/formData' element={<ReactFunctionDemo/>} />
      </Routes>
       
        <Footer/>
