@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Register.css"
 import { useAuth } from '../store/auth';
+import { toast } from 'react-toastify';
 
 const  Register = () => {
   const  {storeTokenLocalstorage}  = useAuth();
@@ -35,18 +36,30 @@ const  Register = () => {
         method: "POST",
         body: JSON.stringify(user),
         headers: { "Content-Type": "application/json" },
-
+      
+        
 
       });
-      if (!response.ok) {
-        throw new Error("error occured in register ", { cause: response });
-      }
-      else {
-        const res_data = await response.json()
-         storeTokenLocalstorage(res_data.token)
+      console.log(response);
+        
+      const res_data = await response.json();
+      console.log("res_data" ,res_data);
+
+      console.log(response);
+      if (response.ok) {
+        storeTokenLocalstorage(res_data.token)
         setUser({
           username: "", email: "", phone: "", password: ""
         })
+        toast.success("Reagistration Succfully")
+      }
+      else {
+       
+        toast.error(res_data.error.extraDetails ? res_data.error.extraDetails : res_data.error.message );
+
+      
+        // throw new Error("error occured in register ", { cause: response });
+        
       }
 
     } catch (error) {

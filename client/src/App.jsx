@@ -11,6 +11,10 @@ import Footer from './components/Footer'
 import Error from './components/Error'
 import ReactFunctionDemo from './components/ReactFunctionDemo'
 import Logout from './components/Logout'
+import AdminUsers from './components/AdminUsers'
+import AdminLayout from './components/AdminLayout'
+import AdminContacts from './components/AdminContacts'
+import EditUser from './components/EditUser'
 
 function App() {
 
@@ -26,11 +30,15 @@ function App() {
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
       <Route path='/logout' element={<Logout/>} />
-      <Route path='*' element={<Error/>} />
       <Route path='/formData' element={<ReactFunctionDemo/>} />
-     </Routes>
-      
-       <Footer/>
+      <Route path='*' element={<Error/>} />
+      <Route path='/admin' element={<AdminLayout />}>
+            <Route path='users' element={<AdminUsers />} />
+            <Route path='contacts' element={<AdminContacts />} />
+            <Route path='/admin/users/:id/edit' element={<EditUser />} />
+          </Route>
+     </Routes>      
+      <Footer/>
     </>
   )
 }

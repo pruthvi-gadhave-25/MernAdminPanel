@@ -3,6 +3,7 @@ import "./Login.css" ;
 
 import {Navigate, useNavigate} from "react-router-dom" ;
 import { useAuth } from '../store/auth';
+import { toast } from 'react-toastify';
 
  function Login() {
 
@@ -42,20 +43,27 @@ import { useAuth } from '../store/auth';
     headers: {"Content-Type" : "application/json" },
   });
     
+  const res_data = await response.json()
+  // console.log(res_data);
+  
+  // console.log("from login");
 
-  if(!response.ok){   
-    throw new Error("Error Occured in Login "  , {cause : response});
-  }
-  else{
-    const res_data = await response.json()
-    console.log("from login");
-    debugger 
+  if(response.ok){   
+   
      await storeTokenLocalstorage(res_data.token);
 
       setUser({
         email: "" ,  password :""  ,
       }) ;
+    
       navigate("/") ;
+      toast.success("Loggedin  Succfully")
+    
+  }
+  else{
+   //throw new Error("Error Occured in Login "  , {cause : response});
+   toast.error(res_data.error.extraDetails ? res_data.error.extraDetails : res_data.error.message );
+  
   }
   
  } catch (error) {

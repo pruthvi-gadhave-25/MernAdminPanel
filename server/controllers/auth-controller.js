@@ -18,13 +18,13 @@ const home = async (req ,res ) => {
 // --------Register---------------------------
 const register = async (req ,res ) => {
     try{    
-        const { username , email ,phone ,password } = req.body ;
+        const { username , email ,phone ,password ,isAdmin} = req.body ;
         const isUserExists = await  User.findOne({email});
 
         if(isUserExists){
             return res.status(400).json({ msg : "Email already exists"}) ;
         }
-      const userCreated  =  await User.create({ username , email ,phone ,password}) ;
+      const userCreated  =  await User.create({ username , email ,phone ,password ,isAdmin}) ;
         res
         .status(200)
         .json({ msg :"Register Successfull ", token : await userCreated.generateToken()}) ;  

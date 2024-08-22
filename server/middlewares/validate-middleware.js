@@ -15,7 +15,7 @@ const validate = (schema) => async (req , res , next) =>  {
             message  ,
             extraDetails
         }
-            res.status(400).json({msg : error}) ;
+            res.status(400).json({error}) ;
             next(error)
     }
 }

@@ -9,6 +9,7 @@ const errorMiddleware = require("./middlewares/error-middleware");
 const authRoute = require("./router/auth-router");
 const contactRouter = require("./router/contact-router");
 const serviceRouter = require("./router/service-router") ;
+const adminRouter = require("./router/admin-router") ;
 
 const app = express() ;
 app.use(express.json()) ;   ///acting as midddeleware parsees incoming requst with json payloads 
@@ -25,6 +26,7 @@ app.use(cors(corsOptions)) ;
 app.use("/api/auth" , authRoute);
 app.use("/api/form" ,contactRouter);
 app.use("/api/data" ,serviceRouter);
+app.use("/api/admin" ,adminRouter);
 
 app.get("/" ,(req ,res) => {
      res.status(200).send("welcome to my world ") ;
