@@ -19,8 +19,7 @@ const authMiddleWare = async ( req, res , next) => {
      
         req.user = userData ;
         req.token = token ;
-        req.userId = userData._id
-        
+        req.userId = userData._id     
     next() ;
     } catch (error) {
     return res.status(401).json({msg : "unauthorized token "});        

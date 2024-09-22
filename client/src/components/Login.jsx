@@ -68,6 +68,7 @@ import { toast } from 'react-toastify';
   
  } catch (error) {
     console.log("error registrtion" , error);
+    alert("invalid credentials")
     
  } 
   }

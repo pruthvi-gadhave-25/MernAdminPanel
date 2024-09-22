@@ -1,5 +1,6 @@
 import React from 'react'
 import  Navbar from '../components/Navbar' ;
+import './Home.css'
 
 function Home() {
   return (
@@ -33,6 +34,7 @@ function Home() {
                 alt="coding together"
                 width="681"
                 height="500"
+                className='softwareDevlopment-Img'
               />
             </div>
           </div>

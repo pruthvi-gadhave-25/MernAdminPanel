@@ -11,7 +11,7 @@ function Navbar() {
     <header className='d-flex '>
       <div className='container'>
         <div className="logo-brand">
-          <h2>Mern App</h2>
+          <h2 className='logo-heading'>MERN APP</h2>
         </div>
         {isLoggedin}
         <nav>
