@@ -40,6 +40,7 @@ app.use(errorMiddleware) ;
 
 // if connection succesfull then listen on port 
 connectDb().then( () => {
+console.log("trying to connect server ");
 
 const PORT = 5000 ;
 app.listen( PORT ,()=> {

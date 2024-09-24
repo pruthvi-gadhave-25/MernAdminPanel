@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../store/auth' ;
 import { IoMdContact  } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
 
+
 function AdminLayout() {
-    const {user} =  useAuth() ;
+    // const {users} =  useAuth() ;
+
+    // useEffect( () => {
+    //     console.log("usecd", users);
+        
+    //     // getAllUsers();
+    // }, [])
     
   return (
  <>

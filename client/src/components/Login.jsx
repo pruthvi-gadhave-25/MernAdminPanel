@@ -56,7 +56,7 @@ import { toast } from 'react-toastify';
         email: "" ,  password :""  ,
       }) ;
     
-      navigate("/") ;
+      navigate("/admin") ;
       toast.success("Loggedin  Succfully")
     
   }

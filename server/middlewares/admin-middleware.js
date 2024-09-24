@@ -2,7 +2,7 @@
 const adminMiddleWare = async (req, res, next) => {
   try {
     
-    console.log(req.user.isAdmin);
+    console.log(    "from middleware ",req.user.isAdmin);
 
     const adminRole = req.user.isAdmin ;
 

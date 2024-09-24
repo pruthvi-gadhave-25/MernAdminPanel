@@ -15,9 +15,12 @@ import AdminUsers from './components/AdminUsers'
 import AdminLayout from './components/AdminLayout'
 import AdminContacts from './components/AdminContacts'
 import EditUser from './components/EditUser'
+import EditContact from './components/EditContact'
 
 function App() {
 
+
+ 
 
   return (
     <>
@@ -36,6 +39,7 @@ function App() {
             <Route path='users' element={<AdminUsers />} />
             <Route path='contacts' element={<AdminContacts />} />
             <Route path='users/:id/edit' element={<EditUser />} />
+            <Route path='contacts/:id/edit' element={<EditContact />} />
           </Route>
      </Routes>      
       <Footer/>

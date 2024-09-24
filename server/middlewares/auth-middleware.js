@@ -13,6 +13,7 @@ const authMiddleWare = async ( req, res , next) => {
 
     }
     const jwtToken = token.replace("Bearer" ,"").trim() 
+
     try {
         const isVerified = jwt.verify(jwtToken , process.env.JWT_SECRET_KEY)       
         const userData = await User.findOne({email : isVerified.email}).select({password : 0 ,})
@@ -22,6 +23,8 @@ const authMiddleWare = async ( req, res , next) => {
         req.userId = userData._id     
     next() ;
     } catch (error) {
+       
+        
     return res.status(401).json({msg : "unauthorized token "});        
     }    
     // next() ; //    dont call it again 
